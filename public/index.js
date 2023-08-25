@@ -1,4 +1,4 @@
-import Posts from "./public/index.js"
+
 
 // import the posts array from data.js
 const posts = require('./data');

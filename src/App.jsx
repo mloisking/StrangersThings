@@ -5,6 +5,7 @@ import Profile from "./Pages/Profile.jsx"
 import Login from "./Pages/Login.jsx"
 import Register from "./Pages/Register.jsx"
 import Navbar from "./components/Navbar.jsx"
+import Home from "./components/Home.jsx"
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <div>
         <Navbar token={token} setToken={setToken}/>
         <Routes>
+          <Route path='/' element={<Home token={token}/>}></Route>
           <Route path='/posts' element={<Posts token={token}/>}></Route>
           <Route path='/profile' element={<Profile token={token}/>}></Route>
           <Route path='/login' element={<Login setToken={setToken}/>}></Route>

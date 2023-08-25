@@ -1,40 +1,24 @@
+import { useNavigate } from 'react-router-dom';
+import { login } from '../API';
 import Authenticationform from '../components/AuthenticationForm';
 
-export default function Login(setToken) {
-  const login = async () => {
-    setToken(result.token);
-    try {
-      const response = await fetch(`${BASE_URL}/users/login`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          user: {
-            username: 'mking44',
-            password: 'Snowcone24$'
-          }
-        })
-      });
-      const result = await response.json();
-      console.log(login);
-      return result
-    } catch (err) {
-      console.error(err);
-    }
+export default function Login({ setToken }) {
+  const navigate=useNavigate()
+  const  handleSubmit= async (e, username, password) => {
+    e.preventDefault()
+    const response=await login(username, password)
+    setToken(response.data.token)
+    localStorage.setItem("token", JSON.stringify(response.data.token))
+    navigate("/")
   }
-    return(
-        function handleSubmit(e){
-            e.preventDefault();
-            console.log("Login form submitted");
-        
-        <div>
-            <h1>
-            Login
-            </h1>
-            <Authenticationform buttonText="Login" handleSubmit={handleSumbit}/>
+  return (
+      <div>
+        <h1>
+          Login
+        </h1>
+        <Authenticationform buttonText="Login" handleSubmit={handleSubmit} />
 
-        </div>
-        }
-    )
+      </div>
+  
+  )
 }

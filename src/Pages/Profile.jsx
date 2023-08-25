@@ -1,6 +1,5 @@
 
 export default function Profile(token) {
-  //Sign up for an account
   const [username, setUsername] = useState("")
   const [messages, setMessages] = useState("")
 
@@ -14,12 +13,35 @@ export default function Profile(token) {
         },
       });
       const result = await response.json();
-      console.log(result);
+      console.log(myData);
       return result
     } catch (err) {
       console.error(err);
     }
   }
+
+  const postMessage = async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/posts/POST_ID/messages`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          message: {
+            content: "Do you still have this?  Would you take $10 less?"
+          }
+        })
+      });
+      const result = await response.json();
+      console.log(postMessage);
+      return result
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
     <div>
       <h1>

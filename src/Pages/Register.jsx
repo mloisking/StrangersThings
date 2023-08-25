@@ -1,40 +1,27 @@
 
+import { useNavigate } from 'react-router-dom';
+import { registerUser } from '../API';
 import Authenticationform from '../components/AuthenticationForm';
 
 
 //Sign up for an account with username and password
-export default function Register(setToken){
-setToken(result.token)    
-    const registerUser = async () => {
-        try {
-          const response = await fetch(
-            `${BASE_URL}/users/register`, {
-            method: "POST",
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              user: {
-                username: 'mking44',
-                password: 'Snowcone24$'
-              }
-            })
-          });
-          const result = await response.json();
-          console.log(registerUser)
-          return result
-        } catch (err) {
-          console.error(err);
-        }
-      }
+export default function Register({setToken}) {
+  const navigate=useNavigate()
+  const  handleSubmit= async (e, username, password) => {
+    e.preventDefault()
+    let response=await registerUser(username, password)
+    setToken(response.data.token)
+    localStorage.setItem("token", JSON.stringify(response.data.token))
+    navigate("/login")
+  }
 
-    return(
-        <div>
-            <h1>
-                Register
-            </h1>
-            <Authenticationform buttonText="Register"/>
-            
-        </div>
-    )
+  return (
+    <div>
+      <h1>
+        Register
+      </h1>
+      <Authenticationform buttonText="Register" handleSubmit={handleSubmit} />
+
+    </div>
+  )
 }
