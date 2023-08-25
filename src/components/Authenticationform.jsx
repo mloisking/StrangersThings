@@ -1,4 +1,5 @@
 import {useState} from 'react'
+
 export default function Authenticationform(buttonText, handleSubmit){
     const[username, setUsername]=useState("")
     const[password, setPassword]=useState("")
@@ -14,7 +15,7 @@ export default function Authenticationform(buttonText, handleSubmit){
                 type="text"
                 id="username"
                 value={username}
-                onChange={(e)=>setUsername(e.target.value)}/>
+                onChange={(e)=>setPassword(e.target.value)}/>
                 <label htmlFor='password'>Password</label>
                 <input
                 type="text"
