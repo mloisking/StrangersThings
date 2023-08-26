@@ -87,7 +87,6 @@ export const login = async (username, password) => {
     }
   }
   export const updatePost = async (TOKEN_STRING_HERE, title, description, price, willDeliver) => {
-
     try {
       const response = await fetch(`${BASE_URL}/posts/64e8e010cd91340014229c05`, {
         method: "PATCH",
@@ -97,10 +96,8 @@ export const login = async (username, password) => {
         },
         body: JSON.stringify({
           post: {
-            title: "Golden Scepter" ,
-            description: "Scepter is from the Byzantine era with 3 sapphires and 3 ruby stones set in the handle",
             price: "$300",
-            willDeliver: "willDeliver"
+  
           }
         })
       });
@@ -130,7 +127,7 @@ export const login = async (username, password) => {
 
  export const postMessage = async (TOKEN_STRING_HERE, title, description, price, willDeliver) => {
     try {
-      const response = await fetch(`${BASE_URL}/posts/Post_ID/messages`, {
+      const response = await fetch(`${BASE_URL}/posts/64e8e010cd91340014229c05/messages`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

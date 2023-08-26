@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../API';
 import Authenticationform from '../components/AuthenticationForm';
 
-
 //Sign up for an account with username and password
 export default function Register({setToken}) {
   const navigate=useNavigate()
