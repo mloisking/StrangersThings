@@ -1,45 +1,15 @@
+import {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export default function Profile(token) {
+export default function Profile(setToken) {
   const [username, setUsername] = useState("")
-  const [messages, setMessages] = useState("")
-
-  const myData = async () => {
-
-    try {
-      const response = await fetch(`${BASE_URL}/users/me`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-      });
-      const result = await response.json();
-      console.log(myData);
-      return result
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  const postMessage = async () => {
-    try {
-      const response = await fetch(`${BASE_URL}/posts/POST_ID/messages`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          message: {
-            content: "Do you still have this?  Would you take $10 less?"
-          }
-        })
-      });
-      const result = await response.json();
-      console.log(postMessage);
-      return result
-    } catch (err) {
-      console.error(err);
-    }
+  const [message, setMessages] = useState("")
+  const navigate=useNavigate()
+  const  handleSubmit= async (e) => {
+    setToken(response.data.token)
+    e.preventDefault()
+    localStorage.setItem("token", JSON.stringify(response.data.token))
+    navigate("/login")
   }
 
   return (
@@ -47,22 +17,22 @@ export default function Profile(token) {
       <h1>
         Profile
       </h1>
-      <form onSubmit={(e) => handleSubmit(e, username, messages)}>
+      <form onSubmit={(e) => handleSubmit(e, username, message)}>
         <label htmlFor='username'>Username</label>
         <input
           type="text"
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)} />
-        <label htmlFor='messages'>setMessages</label>
+        <label htmlFor="message">Message</label>
         <input
           type="text"
-          id="messages"
+          id="message"
           value={message}
           onChange={(e) => setMessages(e.target.value)} />
-        <button type="submit">{buttonText}</button>
+        <button type="submit">Submit</button>
       </form>
 
     </div>
   )
-}
+  }

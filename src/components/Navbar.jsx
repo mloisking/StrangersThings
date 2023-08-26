@@ -1,8 +1,6 @@
 import { NavLink as Link } from "react-router-dom";
 
 export default function Navbar(){
-    //To show different links if logged in or not
-    //Implement logout functionality
     return(
         <nav>
             <ul>

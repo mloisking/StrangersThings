@@ -1,20 +1,27 @@
 import { useState } from 'react';
-import { makePost } from '../API';
+import { makePost, updatePost, } from '../API';
 
 export default function Createposts() {
-    const [title, setTitle ] = useState("")
-    const [ description, setDescription ] = useState("")
-    const [price, setPrice ] = useState("")
-    const [willDeliver, setWillDeliver ] = useState("")
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
+    const [price, setPrice] = useState("")
+    const [willDeliver, setWillDeliver] = useState("")
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         let token = JSON.parse(localStorage.getItem("token"))
-        console.log(token)
         const response = await makePost(token, title, description, price, willDeliver)
         const result = await response.json();
         console.log(result);
-        return result
     }
+    const updatePost= async (e) => {
+        e.preventDefault()
+        let token = JSON.parse(localStorage.getItem("token"))
+        const response = await updatePost(token, title, description, price, willDeliver)
+        const result = await response.json();
+        console.log(result)
+    }
+
     return (
         <div>
             <h1>Create Posts</h1>
@@ -52,6 +59,8 @@ export default function Createposts() {
                     </option>
                 </select>
                 <button type="submit">Add Posts</button>
+                <button type="submit">Update Posts</button>
+
             </form>
         </div>
     )
