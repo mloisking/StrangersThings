@@ -1,5 +1,6 @@
 import { NavLink as Link } from "react-router-dom";
 
+//Create a navigation bar
 export default function Navbar(){
     return(
         <nav>

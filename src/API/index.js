@@ -2,7 +2,7 @@
 const COHORT_NAME = '2302-ACC-ET-WEB-PT-A'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
-
+//Create a login
 export const login = async (username, password) => {
 
     try {
@@ -25,7 +25,7 @@ export const login = async (username, password) => {
       console.error(err);
     }
   }
-
+//Register a new user
   export const registerUser = async (username, password, setToken) => {
     try {
       const response = await fetch(
@@ -48,7 +48,7 @@ export const login = async (username, password) => {
       console.error(err);
     }
   }
-
+//Get all post
   export const fetchPosts = async () => {
     try {
       const response = await fetch(`${BASE_URL}/posts`)
@@ -60,7 +60,7 @@ export const login = async (username, password) => {
       console.error(err);
     }
   }
-  
+  //Make new post
   export const makePost = async (TOKEN_STRING_HERE, title, description, price, willDeliver) => {
 
     try {
@@ -86,6 +86,7 @@ export const login = async (username, password) => {
       console.error(err);
     }
   }
+  //Update a post
   export const updatePost = async (TOKEN_STRING_HERE, title, description, price, willDeliver) => {
     try {
       const response = await fetch(`${BASE_URL}/posts/64e8e010cd91340014229c05`, {
@@ -108,7 +109,7 @@ export const login = async (username, password) => {
       console.error(err);
     }
   }
-  
+  //Delete a post
  export const deletePost = async (TOKEN_STRING_HERE, title, description, price, willDeliver) => {
     try {
       const response = await fetch(`${BASE_URL}/posts/64e8e010cd91340014229c05`,{
@@ -124,7 +125,7 @@ export const login = async (username, password) => {
       console.error(err);
     }
   }
-
+//Post a message
  export const postMessage = async (TOKEN_STRING_HERE, title, description, price, willDeliver) => {
     try {
       const response = await fetch(`${BASE_URL}/posts/64e8e010cd91340014229c05/messages`, {

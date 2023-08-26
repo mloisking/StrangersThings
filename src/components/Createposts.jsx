@@ -6,7 +6,7 @@ export default function Createposts() {
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
     const [willDeliver, setWillDeliver] = useState("")
-
+//make a post with handlesubmit
     const handleSubmit = async (e) => {
         e.preventDefault()
         let token = JSON.parse(localStorage.getItem("token"))
@@ -14,6 +14,7 @@ export default function Createposts() {
         const result = await response.json();
         console.log(result);
     }
+    //Update a post
     const updatePost = async (e) => {
         e.preventDefault()
         let token = JSON.parse(localStorage.getItem("token"))
@@ -21,6 +22,7 @@ export default function Createposts() {
         const result = await response.json();
         console.log(result);
     }
+    //return here
     return (
         <div>
             <h1>Create Posts</h1>

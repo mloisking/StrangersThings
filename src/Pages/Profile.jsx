@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
+//set up a profile
 export default function Profile(setToken) {
   const [username, setUsername] = useState("")
   const [message, setMessages] = useState("")
