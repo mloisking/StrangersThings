@@ -1,4 +1,5 @@
 
+
 const COHORT_NAME = '2302-ACC-ET-WEB-PT-A'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
@@ -97,7 +98,10 @@ export const login = async (username, password) => {
         },
         body: JSON.stringify({
           post: {
-            price: "$300",
+            title: title,
+            description: description,
+            price: price,
+            willDeliver: willDeliver
   
           }
         })

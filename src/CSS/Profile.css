@@ -1,0 +1,8 @@
+.Profile{
+    background-color: blue;
+    display:flexbox;
+    flex-direction:column;
+    justify-content: center;
+  }
+
+  

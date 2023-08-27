@@ -44,3 +44,19 @@
 .Post{
 background-color: blue;
 }
+
+.Home{
+  background-color: blue;
+
+}
+
+.Profile{
+  background-color: blue;
+  display:flexbox;
+  flex-direction:grid;
+  justify-content: center;
+}
+
+
+
+            
