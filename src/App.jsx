@@ -10,8 +10,9 @@ import Home from "./components/Home.jsx"
 
 function App() {
   const[token, setToken]=useState(localStorage.getItem("token"));
+  //Create routes for each page
   return (
-      <div>
+      <div> 
         <Navbar token={token} setToken={setToken}/>
         <Routes>
           <Route path='/' element={<Home token={token}/>}></Route>

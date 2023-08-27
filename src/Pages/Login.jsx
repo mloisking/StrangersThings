@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../API';
 import Authenticationform from '../components/AuthenticationForm';
 
-
 //create a login function
 export default function Login({ setToken }) {
   const navigate=useNavigate()
